@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, StyleSheet, Text } from 'react-native'
 
 export default function Information({
   image,
@@ -12,7 +12,7 @@ export default function Information({
 }) {
   return (
     <div>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.container}>
         <img src={image} alt="character-image" />
         <Text>{name}</Text>
         <Text>{description}</Text>
@@ -20,3 +20,12 @@ export default function Information({
     </div>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+  },
+})

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import apiParams from '../../config.js'
 import axios from 'axios'
-import { ActivityIndicator, FlatList, ScrollView } from 'react-native'
+import { ActivityIndicator, FlatList, ScrollView, StyleSheet } from 'react-native'
 import CharacterCard from './CharacterCard'
 import { Searchbar } from 'react-native-paper'
 
@@ -47,7 +47,7 @@ export default function Home({ navigation }) {
   }
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.container}>
       {isLoading ? (
         <ActivityIndicator size="large" color="#00ff00" />
       ) : (
@@ -76,3 +76,16 @@ export default function Home({ navigation }) {
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+})

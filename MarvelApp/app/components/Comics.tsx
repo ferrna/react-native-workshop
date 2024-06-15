@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ActivityIndicator, FlatList, ScrollView } from 'react-native'
+import { ActivityIndicator, FlatList, ScrollView, StyleSheet } from 'react-native'
 import Comic from './Comic'
 import axios from 'axios'
 import apiParams from '../../config.js'
@@ -25,7 +25,7 @@ export default function Comics({ listComics }: { listComics: any[] }) {
       .finally(() => setLoading(false))
   }, [])
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView contentContainerStyle={styles.container}>
       {isLoading ? (
         <ActivityIndicator size="large" color="#00ff00" />
       ) : (
@@ -47,3 +47,12 @@ export default function Comics({ listComics }: { listComics: any[] }) {
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+  },
+})
